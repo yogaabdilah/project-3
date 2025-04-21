@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAPORAN TEORI - Bootstrap</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Tampilan Neat dengan warna soft dan hiasan */
+    body.bg-neat {
+      background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      background-color: #ffffffcc;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    .content {
+      background-color: #fdfdfd;
+      border-left: 5px solid #0d6efd;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    h3.clickable {
+      cursor: pointer;
+      user-select: none;
+      padding: 0.5rem;
+      background-color: #e6f0ff;
+      border-radius: 0.5rem;
+    }
+
+    .btn-toggle {
+      background-color: #6c63ff;
+      border: none;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    .btn-toggle:hover {
+      background-color: #5548c8;
+    }
+
+    /* Mode messy */
+    body.messy {
+      background-color: #ff00ff !important;
+      color: #00ff00 !important;
+      font-family: 'Comic Sans MS', cursive, sans-serif !important;
+    }
+    body.messy h1, body.messy h2, body.messy h3 {
+      color: #ffff00 !important;
+      text-shadow: 2px 2px #ff0000 !important;
+    }
+    body.messy .content {
+      background-color: #5f7892 !important;
+      color: #ffff00 !important;
+      border: 3px dotted #00ff00 !important;
+      padding: 1rem !important;
+      border-radius: 0 !important;
+    }
+    body.messy .btn-toggle {
+      background-color: #00ff00 !important;
+      color: #ff00ff !important;
+      border: 3px dashed #ff0000 !important;
+      font-weight: bold !important;
+    }
+    body.messy .btn-toggle:hover {
+      background-color: #ff00ff !important;
+      color: #00ff00 !important;
+    }
+  </style>
+</head>
+<body class="bg-neat">
+  <div class="container py-4">
+    <button id="modeToggle" class="btn btn-toggle mb-3" aria-label="Toggle display mode">Switch to Messy Mode</button>
+    <h1 class="mb-1">LAPORAN TEORI</h1>
+    <h2 class="mb-4">Yoga Abdilah | 202332023</h2>
+
+    <!-- Pertanyaan & Jawaban -->
+    <section>
+      <h3 class="clickable" tabindex="0">1. Mengapa menggunakan CSS dan JavaScript dalam pemrograman web?</h3>
+      <div class="content mb-4">
+        <p>CSS digunakan untuk mengatur tampilan visual dari halaman web. JavaScript digunakan untuk interaktivitas dan membuat halaman menjadi dinamis.</p>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="clickable" tabindex="0">2. Jelaskan apa saja keuntungan menggunakan JavaScript dan CSS?</h3>
+      <div class="content mb-4">
+        <p><strong>CSS:</strong></p>
+        <ul>
+          <li>Memisahkan desain dan konten</li>
+          <li>Konsistensi tampilan</li>
+          <li>Responsif dan ringan</li>
+        </ul>
+        <p><strong>JavaScript:</strong></p>
+        <ul>
+          <li>Interaktif dan dinamis</li>
+          <li>Manipulasi DOM langsung</li>
+          <li>Validasi form di sisi klien</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="clickable" tabindex="0">3. Jelaskan apa saja keuntungan menggunakan Bootstrap?</h3>
+      <div class="content mb-4">
+        <ul>
+          <li>Responsif otomatis</li>
+          <li>Banyak komponen siap pakai</li>
+          <li>Konsistensi tampilan</li>
+          <li>Dokumentasi lengkap</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="clickable" tabindex="0">4. Bagaimana CSS dan JavaScript dapat diintegrasikan dalam pemrograman web?</h3>
+      <div class="content mb-4">
+        <p>JavaScript dapat digunakan untuk mengubah gaya CSS secara dinamis.</p>
+        <pre><code>document.getElementById("myButton").addEventListener("click", function() {
+  document.getElementById("myElement").style.color = "red";
+  document.getElementById("myElement").className = "highlighted";
+});</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="clickable" tabindex="0">5. Contoh penggunaan Bootstrap dan fungsinya</h3>
+      <div class="content mb-4">
+        <img src="image/boostrap.png" alt="contoh bootstrap" class="img-fluid mb-3 rounded shadow" />
+        <p>Contoh penggunaan Bootstrap:</p>
+        <code>&lt;h1 class="mb-1"&gt;LAPORAN TEORI&lt;/h1&gt;</code><br/>
+        <code>&lt;h2 class="mb-4"&gt;Yoga Abdilah | 202332023&lt;/h2&gt;</code>
+        <p><strong>Fungsi:</strong> `mb-1` dan `mb-4` adalah kelas Bootstrap untuk mengatur margin bawah (spacing antar elemen).</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Klik untuk sembunyikan konten
+    document.querySelectorAll('h3.clickable').forEach(h3 => {
+      h3.addEventListener('click', () => {
+        const contentDiv = h3.nextElementSibling;
+        if (!contentDiv) return;
+        const isVisible = contentDiv.style.display !== 'none';
+        if (isVisible) {
+          const confirmHide = confirm('Sembunyikan bagian ini?');
+          if (confirmHide) {
+            contentDiv.style.display = 'none';
+          }
+        } else {
+          contentDiv.style.display = '';
+        }
+      });
+
+      h3.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          h3.click();
+        }
+      });
+    });
+
+    // Ganti mode
+    const modeToggleBtn = document.getElementById('modeToggle');
+    modeToggleBtn.addEventListener('click', () => {
+      const body = document.body;
+      if (body.classList.contains('messy')) {
+        body.classList.remove('messy');
+        body.classList.add('bg-neat');
+        modeToggleBtn.textContent = 'Switch to Messy Mode';
+      } else {
+        body.classList.add('messy');
+        body.classList.remove('bg-neat');
+        modeToggleBtn.textContent = 'Switch to Neat Mode';
+      }
+    });
+  </script>
+</body>
+</html>
